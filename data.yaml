@@ -1,7 +1,6 @@
 theme:
   mode: system
   accent_color: '#0581ff'
-allow_dangerous_commands: false
 features:
 - feature: Optimizer
   categories:

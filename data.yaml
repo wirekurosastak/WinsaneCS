@@ -1,3 +1,4 @@
+
 theme:
   mode: system
   accent_color: '#0581ff'
@@ -562,15 +563,15 @@ features:
       subitems:
       - name: Cache
         purpose: Removes Opera cached files.
-      true: $A = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument '-NoProfile
-        -ExecutionPolicy Bypass -Command "& { Get-ChildItem \"$env:LOCALAPPDATA\Opera
-        Software\Opera Stable\Cache\*\" -Recurse -Force -ErrorAction SilentlyContinue
-        | Remove-Item -Force -Recurse }"'; $T = New-ScheduledTaskTrigger -AtLogon;
-        Register-ScheduledTask -TaskName "Winsane Opera Cache" -Action $A -Trigger
-        $T
-      false: Unregister-ScheduledTask -TaskName "Winsane Opera Cache" -Confirm:$false
-        -ErrorAction SilentlyContinue
-      enabled: false
+        true: $A = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument '-NoProfile
+          -ExecutionPolicy Bypass -Command "& { Get-ChildItem \"$env:LOCALAPPDATA\Opera
+          Software\Opera Stable\Cache\*\" -Recurse -Force -ErrorAction SilentlyContinue
+          | Remove-Item -Force -Recurse }"'; $T = New-ScheduledTaskTrigger -AtLogon;
+          Register-ScheduledTask -TaskName "Winsane Opera Cache" -Action $A -Trigger
+          $T
+        false: Unregister-ScheduledTask -TaskName "Winsane Opera Cache" -Confirm:$false
+          -ErrorAction SilentlyContinue
+        enabled: false
       - name: Cookies
         purpose: Removes Opera cookies.
         true: $A = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument '-NoProfile
